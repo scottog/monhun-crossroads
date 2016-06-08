@@ -25,7 +25,132 @@
     };
 
     //TODO - enter all tolerance increases.
-    mhx.monsters = [{
+    mhx.monsters = [
+    {
+        name: 'Arzuros',
+        type: 'Beast',
+        size: 'Large',
+        subtype: false,
+        hp: 2400,
+        habitat: {
+            'Misty Peaks': { start: 5, other: [6,7,8,9], rest: 2 },
+            'Deserted Island': { start: 2, other: [3,5,6,8], rest: 7},
+            'Tower': { start: 1 }
+        },
+        statusEffects: [{
+            type: 'Poison',
+            effect: '60s (2 damage every 5 seconds)',
+            initial: 60,
+            max:     460,
+            step:    80,
+            recover: '5 / 10s'
+        }, {
+            type: 'Sleep',
+            effect: '60s',
+            initial: 80,
+            step:    80,
+            max:     400,
+            recover: '5 / 10s'
+        }, {
+            type:   'Paralysis',
+            effect: '12s',
+            initial: 80,
+            step:    80,
+            max:     400,
+            recover: '5 / 10s'
+        }, {
+            type:   'Stun',
+            effect: '10s',
+            initial: 100,
+            step:    80,
+            max:     300,
+            recover: '5 / 10s'
+        }, {
+            type: 'Exhaust',
+            initial: 100,
+            step:    80,
+            max:     420,
+            recover: '5 / 10s'
+        }, {
+            type: 'Blast',
+            effect: '100 damage',
+            initial: 70,
+            step:    30,
+            max:     500
+        }, {
+            type: 'Jump',
+            initial: 50,
+            step:    120,
+            max:     530
+        }, {
+            type: 'Ride',
+            effect: '100 LR, 150 HR',
+            initial: 40,
+            step:    80,
+            max:     800
+        }],
+        hitzone: [{
+            name: 'Head',
+            Cutting: 55,
+            Impact:  55,
+            Shot:    55,
+            Fire:    20,
+            Water:   5,
+            Ice:     15,
+            Thunder: 10,
+            KO:      100,
+            Jump:    100
+        }, {
+            name: 'Upper Body',
+            Cutting: 50,
+            Impact:  50,
+            Shot:    62,
+            Fire:    25,
+            Water:   5,
+            Ice:     15,
+            Thunder: 10,
+            Jump:    100
+        }, {
+            name: 'Forelegs',
+            Cutting: 33,
+            Impact:  35,
+            Shot:    28,
+            Fire:    30,
+            Water:   5,
+            Ice:     20,
+            Thunder: 30,
+            Jump:    100
+        }, {
+            name: 'Hindlimbs',
+            Cutting: 55,
+            Impact:  55,
+            Shot:    38,
+            Fire:    15,
+            Water:   5,
+            Ice:     20,
+            Thunder: 10,
+            Jump:    100
+        }, {
+            name: 'Butt',
+            Cutting: 66,
+            Impact:  66,
+            Shot:    43,
+            Fire:    15,
+            Water:   5,
+            Ice:     20,
+            Thunder: 10,
+            Jump:    100
+        }],
+        trapData: {
+            'Pitfall Trap': {Susceptible: true, Normal: 15, Enraged: 15, Exhausted: 20},
+            'Flash Bomb': {Susceptible: true, Normal: 20, Enraged: 20, Exhausted: 30},
+            'Shock Trap': {Susceptible: true, Normal: 12, Enraged: 12, Exhausted: 20},
+            'Sonic Bomb': {Susceptible: false},
+            'Meat Trap': {Susceptible: false},
+            'Beaten Ivy': {Susceptible: false}
+        }
+    }, // arzuros
+    {
         name: 'Tetsucabra',
         type: 'Amphibian',
         size: 'Large',
@@ -47,34 +172,31 @@
         },
         statusEffects: [{
             type:   'Poison',
+            effect: '60s (20 damage every 5 seconds)',
             initial: 100,
+            step:    100,
             max:     500,
-            duration:60,
-            damage:  300,
-            recover: '5 / 10s'
-        }, {
-            type:   'Paralysis',
-            initial: 200,
-            max:     500,
-            duration:10,
             recover: '5 / 10s'
         }, {
             type:   'Sleep',
+            effect: '40s',
             initial: 150,
+            step:    100,
             max:     550,
-            duration:40,
+            recover: '5 / 10s'
+        }, {
+            type:   'Paralysis',
+            effect: '10s',
+            initial: 200,
+            step:    75,
+            max:     500,
             recover: '5 / 10s'
         }, {
             type:   'Stun',
+            effect: '10s',
             initial: 200,
+            step:    100,
             max:     500,
-            duration:10,
-            recover: '5 / 10s'
-        }, {
-            type:   'KO',
-            initial: 150,
-            max:     550,
-            duration:40,
             recover: '5 / 10s'
         }, {
             type: 'Exhaust',
@@ -84,10 +206,10 @@
             recover: '5 / 10s'
         }, {
             type: 'Blast',
+            effect: '100 damage',
             initial: 100,
             step: 45,
-            max: 1080,
-            damage: 100
+            max: 1080
         }, {
             type: 'Jump',
             initial: 50,
@@ -95,76 +217,75 @@
             max: 450
         }, {
             type: 'Ride',
-            damage: '100 LR, 150 HR',
+            effect: '100 LR, 150 HR',
             initial: 60,
             step: 100,
             max: 760
         }],
-        hitzone: [
-            { name: 'Head',
-                Cutting: 56,
-                Impact: 56,
-                Shot: 60,
-                Water: 30,
-                Thunder: 25,
-                Ice: 5,
-                Dragon: 5,
-                KO: 100,
-                Jump: 100 // % damage applied to 'Ride' accumulation
-            }, {
-                name: 'Fangs',
-                Cutting: 42,
-                Impact: 45,
-                Shot: 40,
-                Water: 25,
-                Ice: 10,
-                Thunder: 25,
-                Dragon: 5,
-                KO: 100,
-                Jump: 100
-            }, {name: 'Forelegs',
-                Cutting: 45,
-                Impact: 42,
-                Shot: 40,
-                Water: 20,
-                Thunder: 15,
-                Ice: 5,
-                Dragon: 5,
-                Jump: 100
-            }, {
-                name: 'Back Legs',
-                Cutting: 42,
-                Impact: 42,
-                Shot: 40,
-                Water: 15,
-                Thunder: 15,
-                Ice: 5,
-                Dragon: 5,
-                Jump: 100
-            }, {
-                name: 'Tail',
-                Cutting: 36,
-                Cutting2: 80,
-                Impact: 36,
-                Impact2: 80,
-                Shot: 35,
-                Shot2: 85,
-                Water: 20,
-                Water2: 30,
-                Ice: 10,
-                Ice2: 15,
-                Thunder: 15,
-                Thunder2: 30,
-                Dragon: 5,
-                Jump: 100
-            }, {
-                name: 'Rock',
-                Cutting: 18,
-                Impact: 18,
-                Shot: 15,
-                Dragon: 10
-            }
-        ],
+        hitzone: [{
+            name: 'Head',
+            Cutting: 56,
+            Impact: 56,
+            Shot: 60,
+            Water: 30,
+            Thunder: 25,
+            Ice: 5,
+            Dragon: 5,
+            KO: 100,
+            Jump: 100 // % damage applied to 'Ride' accumulation
+        }, {
+            name: 'Fangs',
+            Cutting: 42,
+            Impact: 45,
+            Shot: 40,
+            Water: 25,
+            Ice: 10,
+            Thunder: 25,
+            Dragon: 5,
+            KO: 100,
+            Jump: 100
+        }, {name: 'Forelegs',
+            Cutting: 45,
+            Impact: 42,
+            Shot: 40,
+            Water: 20,
+            Thunder: 15,
+            Ice: 5,
+            Dragon: 5,
+            Jump: 100
+        }, {
+            name: 'Back Legs',
+            Cutting: 42,
+            Impact: 42,
+            Shot: 40,
+            Water: 15,
+            Thunder: 15,
+            Ice: 5,
+            Dragon: 5,
+            Jump: 100
+        }, {
+            name: 'Tail',
+            Cutting: 36,
+            Cutting2: 80,
+            Impact: 36,
+            Impact2: 80,
+            Shot: 35,
+            Shot2: 85,
+            Water: 20,
+            Water2: 30,
+            Ice: 10,
+            Ice2: 15,
+            Thunder: 15,
+            Thunder2: 30,
+            Dragon: 5,
+            Jump: 100
+        }, {
+            name: 'Rock',
+            Cutting: 18,
+            Impact: 18,
+            Shot: 15,
+            Dragon: 10
+        }],
         trapData: {
             'Pitfall Trap': { Susceptible: true, Normal: 15, Enraged: 12, Exhausted: 20 },
             'Flash Bomb': { Susceptible: true, Normal: 30, Enraged: 20, Exhausted: 30 },
@@ -488,7 +609,7 @@
             Jump: 100
         }
         ],
-            trapData: {
+        trapData: {
             'Pitfall Trap': { Susceptible: true, Normal: 10, Enraged: 10, Exhausted: 20 },
             'Shock Trap': { Susceptible: true, Normal: 8, Enraged: 8, Exhausted: 15 },
             'Flash Bomb': { Susceptible: false},
@@ -503,9 +624,11 @@
     mhx.jp = {
         'abdomen': '腹部',
         'ancient forest': '古代林',
+        'arzuros': 'アオアシラ',
         'beaten ivy': 'ツタやられ', // No idea at all...
         'belly': '腹',
         'blast': '爆破',
+        'butt': '尻',
         'confinement area': '禁足地',
         'deserted island': '孤島',
         'dorsal fin': '背ビレ',
@@ -515,12 +638,13 @@
         'frozen seaway': '氷海',
         'hindlimbs': '後脚',
         'enraged': '怒り',
-        'exhaust': 'スタミナ', //stamina, but whatever.
+        'exhaust': 'スタミナ',
         'exhausted': '疲れ',
         'jump': 'ジャンプ',
         'ko': '気絶',
         'meat trap': '罠肉',
         'mount': '乗り',
+        'misty peaks': '渓流',
         'neck': '首',
         'normal': '通常',
         'not when enraged. only while swimming.': '怒り時以外。潜行中のみ',
@@ -536,6 +660,8 @@
         'stun': '気絶',
         'tetsucabra': 'テツカブラ',
         'torso': '胴',
+        'tower': '塔の秘境',
+        'upper body': '上半身',
         'virgin forest': '原生林',
         'volcano': '火山',
         'volcanic hollow': '地底火山',
