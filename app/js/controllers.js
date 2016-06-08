@@ -6,8 +6,8 @@
 var mhxControllers = angular.module('mhx.controllers', []);
 
 mhxControllers.controller('MHXController',
-         ['$scope', '$window', '$route', '$routeParams', '$location', '$translate',
-             function($scope, $window, $route, $routeParams, $location, $translate)
+         ['$scope', '$window', '$route', '$routeParams', '$location',
+             function($scope, $window, $route, $routeParams, $location)
 {
     $scope.isChromeBrowser = !!window.chrome;
 }]); // end Monster Hunter Xroads Controller
