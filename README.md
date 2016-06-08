@@ -2,30 +2,26 @@
 
 ## Tech stack
 
-* Bootstrap CSS
-* CSS animation
-* LESS
+* Angular Material
+* SCSS
 * Angular.js
-* Angular Translate
+* Angular-Route
   
 ## Building
 
-In order to build the stylesheets, you'll need LESS. The easiest way to do this
+In order to build the stylesheets, you'll need SCSS. The easiest way to do this
 is to download Node.js, and run:
 
-    sudo npm install -g less
-    sudo npm install -g grunt-cli
+    sudo npm install -g gulp
+    // ? sudo npm install -g sass?
+    // Working on moving to SCSS and gulp, not grunt and LESS
 
-This puts the grunt build system and LESS on your box.
-Then, in the app/bootstrap.x.x.x directory for this codebase, run
+This puts the gulp build system and SCSS on your box.
+Then, in the ./app directory for this codebase, run
 
-    npm install
+    bower install
 
-Then, in the same directory, run
-
-    grunt watch
-
-This will watch all your less files and turn them into css files
+This will watch all your SASS files and turn them into css files
 
 ## Deploying
 
