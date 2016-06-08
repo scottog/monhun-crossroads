@@ -1,0 +1,20 @@
+{
+  "name": "mhx",
+  "homepage": "https://github.com/scottog/monhun-crossroads",
+  "authors": [
+    "Scott Gildersleeve <feralalpha@gmail.com>"
+  ],
+  "description": "A full-featured Monster Hunter compendium, aggregating many good ideas.",
+  "main": "index.html",
+  "license": "GPLv3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6"
+  }
+}
