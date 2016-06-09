@@ -2,6 +2,7 @@
 
 /* App Module */
 angular.module('mhx.app', [
+    'ngMaterial',
     'ngRoute',
     'mhx.version',
     'mhx.controllers'
