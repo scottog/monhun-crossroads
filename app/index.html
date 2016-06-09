@@ -19,13 +19,13 @@
     <!-- modules -->
 
 </head>
-<body ng-app="mhx.app">
-    <div ng-controller="MHXController" class="full-screen {{settings.dir}}">
+<body ng-app="mhx.app" layout="column"
+      ng-controller="MHXController">
 
         <!------------------->
         <!--  NOT CHROME   -->
         <!------------------->
-        <div class="not-chrome" ng-show="!isChromeBrowser" ng-cloak>
+        <div class="not-chrome" ng-show="!isChromeBrowser">
             <div class="jumbotron container">
                 <div class="col-xs-12">
                     <h3>Monster Hunter Crossroads is best viewed with the Chrome browser.</h3>
@@ -41,16 +41,18 @@
         <!-------------->
         <!-- MAIN APP -->
         <!-------------->
-        <div class="full-screen" ng-show="isChromeBrowser" ng-cloak>
-            <md-toolbar>
-                <h1>Yeah, I got nothing</h1>
-            </md-toolbar>
-            <md-sidenav md-is-locked-open="true">
+        <md-toolbar>
+            <h1>Yeah, I got nothing</h1>
+        </md-toolbar>
+
+        <div class="container" layout="row" flex ng-show="isChromeBrowser" ng-cloak>
+            <md-sidenav md-is-locked-open="true" class="lightblue">
                 Sidenav
             </md-sidenav>
-            <md-content id="content">Content</md-content>
+            <md-content class="lightgreen" id="content" flex>
+                Content
+            </md-content>
         </div>
-    </div>
 
     <!--<script type="text/javascript"-->
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
