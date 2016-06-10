@@ -5,7 +5,8 @@ angular.module('mhx.app', [
     'ngMaterial',
     'ngRoute',
     'mhx.version',
-    'mhx.controllers'
+    'mhx.app.controller',
+    'mhx.data'
 ])
 
 // Rough. Let's put these into a proper service+json file

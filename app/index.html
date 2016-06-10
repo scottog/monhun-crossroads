@@ -12,27 +12,23 @@
         href="images/favicon.png">
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
-    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Economica:400,700,400italic,700italic'>
-    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Ubuntu+Condensed|Homenaje'>
-    <!-- services -->
-
-    <!-- modules -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="css/app.css"/>
 
 </head>
-<body ng-app="mhx.app" layout="column"
-      ng-controller="MHXController">
+<body ng-app="mhx.app" layout="column" ng-controller="mhxroadsController as cont">
 
         <!------------------->
         <!--  NOT CHROME   -->
         <!------------------->
-        <div class="not-chrome" ng-show="!isChromeBrowser">
+        <div class="not-chrome" ng-show="!cont.isChromeBrowser">
             <div class="jumbotron container">
                 <div class="col-xs-12">
                     <h3>Monster Hunter Crossroads is best viewed with the Chrome browser.</h3>
                     <p class="lead">Please open this site in chrome</p>
                     <p><a href="//www.google.com/chrome/browser/desktop/index.html">Get chrome <i class="fa fa-chrome"></i></a>
                         &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="#" ng-click="isChromeBrowser = !isChromeBrowser">I understand the experience may not be ideal,
+                    <a href="#" ng-click="cont.isChromeBrowser = !(cont.isChromeBrowser)">I understand the experience may not be ideal,
                     but let me in anyway.</a></p>
                 </div>
             </div>
@@ -42,15 +38,25 @@
         <!-- MAIN APP -->
         <!-------------->
         <md-toolbar>
-            <h1>Yeah, I got nothing</h1>
+            <h1>MonHun Crossroads</h1>
         </md-toolbar>
 
-        <div class="container" layout="row" flex ng-show="isChromeBrowser" ng-cloak>
-            <md-sidenav md-is-locked-open="true" class="lightblue">
-                Sidenav
+        <div class="container" layout="row" flex ng-show="cont.isChromeBrowser" ng-cloak>
+            <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
+                <md-list>
+                    <md-list-item ng-repeat="section in cont.sections">
+                        <md-button ng-click="cont.activeSection=section">
+                            <md-icon>{{section.ligature}}</md-icon>
+                            {{section.title}}
+                        </md-button>
+                    </md-list-item>
+                </md-list>
             </md-sidenav>
-            <md-content class="lightgreen" id="content" flex>
-                Content
+
+            <md-content id="content" ng-show="cont.activeSection" flex>
+                <md-icon>{{cont.activeSection.ligature}}</md-icon>
+                <h2>{{cont.activeSection.title}}</h2>
+                <p>{{cont.activeSection.desc}}</p>
             </md-content>
         </div>
 
@@ -61,18 +67,12 @@
     <script type="text/javascript" src="bower_components/angular-material/angular-material.js"></script>
     <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
 
-    <!-- crappy, non-service data-->
-    <script type="text/javascript" src="js/mhx_data.js"></script>
+    <!-- services -->
+    <script type="text/javascript" src="js/monsters/MonsterService.js"></script>
 
-    <!-- js -->
+    <!-- modules -->
     <script type="text/javascript" src="js/version/version.js"></script>
-    <script type="text/javascript" src="js/mh_xroads_app.js"></script>
-    <script type="text/javascript" src="js/controllers.js"></script>
-
-    <style>
-        .red{background-color: red;}
-        .lightblue{background-color: lightblue;}
-        .lightgreen{background-color: lightgreen;}
-    </style>
+    <script type="text/javascript" src="js/MHXroadsApp.js"></script>
+    <script type="text/javascript" src="js/MHXroadsController.js"></script>
 </body>
 </html>
