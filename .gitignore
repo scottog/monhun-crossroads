@@ -25,6 +25,8 @@ project/plugins/project/
 *.sublime-workspace
 nbproject
 Thumbs.db
+*.iml
+*.ipr
 
 # Numerous always-ignore extensions
 *.diff
